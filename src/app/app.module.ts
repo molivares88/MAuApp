@@ -4,6 +4,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+//import { AccountComponent } from './account/account.component';
 //import { LoginComponent } from './login/login.component';
 
 @NgModule({

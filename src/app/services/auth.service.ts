@@ -31,7 +31,23 @@ export class AuthService
       }).then( (response ) => 
       {
           const result = response.content.toJSON();
-          resolve(result);
+          if(result.access_token)
+          {
+            this.user.firstName = result.user.first_name;
+            this.user.lastName = result.user.last_name;
+            this.user.email = result.user.email;
+            this.user.uuid = result.user.uuid;
+            this.user.id = result.user.id;
+            this.user.token = result.user.access_token;
+
+            
+
+            resolve(result.access_token);
+
+          }else{
+            reject(result.error);
+        
+          }
       }).catch((error) => 
       {
         reject(error);
@@ -58,23 +74,7 @@ export class AuthService
           const result = response.content.toJSON();
           console.log(result);
           
-          if(result.access_token)
-          {
-            this.user.firstName = result.user.first_name;
-            this.user.lastName = result.user.last_name;
-            this.user.email = result.user.email;
-            this.user.uuid = result.user.uuid;
-            this.user.id = result.user.id;
-            this.user.token = result.user.access_token;
-
-            
-
-            resolve(result.access_token);
-
-          }else{
-            reject(result.error);
-        
-          }
+          
 
       }).catch((error) => 
       {
