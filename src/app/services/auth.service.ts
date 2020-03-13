@@ -10,25 +10,26 @@ export class AuthService
 {
   user = new User();
   bizURL = "http://auth.bizbox.mx/api/";
-  loginURL : "auth/login";
-  registerURL : "auth/register";
-
+  loginURL = "auth/login";
+  registerURL = "auth/register";
+  forgotURL = "auth/recover-password";
+  
   constructor() { 
 
   }
   
   login(email: string, psw: string): Promise<string>{
-    return new Promise<string>( (resolve, reject) => 
+    return new Promise<string>((resolve, reject) => 
     {
       request({
         url: this.bizURL + this.loginURL,
-        headers: {"Content-Type": "application/json" },
+        headers: {"Content-Type": "application/json"},
         method: "POST",
-        content: JSON.stringify( {
+        content: JSON.stringify({
           email, 
           psw
         })
-      }).then( (response ) => 
+      }).then((response) => 
       {
           const result = response.content.toJSON();
           if(result.access_token)
@@ -83,4 +84,28 @@ export class AuthService
     });
   }
 
+    forgot(email: string): Promise<string>{
+      return new Promise<string>(( (resolve, reject) => {
+        request({
+          url: this.bizURL + this.forgotURL,
+          headers: {"Content-Type": "application/json"},
+          method: "POST",
+          content: JSON.stringify( {
+            email
+          })
+        }).then((response) => 
+        {
+          const result = response.content.toJSON();
+            if(result.msg)
+            {
+              resolve(result.msg);
+            }else{
+              reject(result.msg);
+            }
+        }).catch((error) => 
+        {
+          reject(error);
+        })  
+      });
+    }  
 }
