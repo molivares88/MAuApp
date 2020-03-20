@@ -106,6 +106,6 @@ export class AuthService
         {
           reject(error);
         })  
-      });
+      }));
     }  
 }

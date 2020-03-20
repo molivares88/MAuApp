@@ -13,6 +13,7 @@ const routes: Routes = [
     { path: "register", loadChildren: () => import("~/app/register/register.module").then((m) => m.RegisterModule) },
     { path: "account", loadChildren: () => import("~/app/account/account.module").then((m) => m.AccountModule) },
     { path: "dialog", loadChildren: () => import("~/app/dialog/dialog.module").then((m) => m.DialogModule) }
+    { path: "scanner", loadChildren: () => import("~/app/scanner/scanner.module").then((m) => m.ScannerModule) }
 ];
 
 @NgModule({

@@ -4,6 +4,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { ScannerComponent } from './scanner/scanner.component';
 //import { DialogComponent } from './dialog/dialog.component';
 //import { AccountComponent } from './account/account.component';
 //import { LoginComponent } from './login/login.component';
@@ -18,7 +19,8 @@ import { AppComponent } from "./app.component";
         NativeScriptUISideDrawerModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        ScannerComponent
         
     
     ],

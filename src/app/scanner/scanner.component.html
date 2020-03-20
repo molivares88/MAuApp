@@ -1,0 +1,10 @@
+<StackLayout dock="top" class="nt-form">
+    <!-- 
+        <TextField  keyboardType="email" autocapitalizationType="none" [(ngModel)]="email" class="nt-input" hint="Email"></TextField>
+    -->
+    <Button (tap)="fuScanning()") text="Escanear codigo QR!"></Button>
+    <Label [text]="scannerText"></Label>
+    <Button (tap)="fuTakePicture()") text="Tomar foto y guardarla."></Button>
+    <Image [src]="imageSrc"></Image>
+
+</StackLayout>
