@@ -5,9 +5,18 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ScannerComponent } from './scanner/scanner.component';
+import {iOSApplication} from "tns-core-modules/application";
+import { MapComponent } from './map/map.component';
 //import { DialogComponent } from './dialog/dialog.component';
 //import { AccountComponent } from './account/account.component';
 //import { LoginComponent } from './login/login.component';
+
+declare var GMSServices: any;
+
+if (iOSApplication) { 
+    GMSServices.provideAPIKey("AlzaSyD0AXJg6YZxmReZ4PiZwBbzKILCX8sEBuc");
+}
+
 
 @NgModule({
     bootstrap: [
@@ -19,8 +28,7 @@ import { ScannerComponent } from './scanner/scanner.component';
         NativeScriptUISideDrawerModule
     ],
     declarations: [
-        AppComponent,
-        ScannerComponent
+        AppComponent
         
     
     ],
